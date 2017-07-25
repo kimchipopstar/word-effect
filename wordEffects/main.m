@@ -8,6 +8,68 @@
 
 #import <Foundation/Foundation.h>
 
+enum operation {
+
+    uppercase,
+    lowercase,
+    numberize,
+    canadianize,
+    respond,
+    despaceit
+
+};
+
+void myFuncion (NSString *a, enum operation b){
+    
+    NSString *upInputString = [a uppercaseString];
+    
+    NSString *lowInputString = [a lowercaseString];
+    
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *myNumber = [f numberFromString:a];
+    
+    NSString *addEh = [a stringByAppendingString:@"eh?"];
+
+    
+    
+    NSString *deSpace = [a stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    
+    
+    switch (b) {
+        case uppercase:
+            
+            NSLog(@"Make it louder: %@",upInputString);
+            break;
+            
+        case lowercase:
+            
+            NSLog(@"Make it more quiet: %@",lowInputString);
+            break;
+            
+        case numberize:
+            
+            NSLog(@"The number you put in is: %@",myNumber);
+            
+        case canadianize:
+            
+            NSLog(@"Canadianize: %@",addEh);
+            
+        case respond:
+            
+            NSLog(<#NSString * _Nonnull format, ...#>);
+            
+            break;
+            
+        case despaceit:
+            
+            NSLog(@"no spaces: %@",deSpace);
+            
+        default:
+            break;
+    }
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
@@ -23,21 +85,13 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"Input was: %@", inputString);
         
-        NSString *upInputString = [inputString uppercaseString];
         
-        NSLog(@"Make it louder: %@",upInputString);
         
-        NSString *lowInputString = [inputString lowercaseString];
         
-        NSLog(@"Make it more quiet: %@",lowInputString);
         
-        NSNumber *convertNumber = inputString;
         
-        NSLog(@"The number you put in is: %@",convertNumber);
         
-        NSString *addEh = [inputString stringByAppendingString:@"eh?"];
         
-        NSLog(@"Canadianize: %@",addEh);
         
         
     }
